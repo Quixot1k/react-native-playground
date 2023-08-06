@@ -31,7 +31,7 @@ const BottomSheet = forwardRef(
         /* gestures */
         const gesture = Gesture.Pan()
             .onStart(() => {
-                // automatically drag to MIN_TRANS_Y at beginning
+                // set the starting position
                 bottomSheetContext.value = bottomSheetTransY.value;
             })
             .onUpdate(e => {
@@ -78,6 +78,7 @@ const BottomSheet = forwardRef(
 
         /* render */
         useEffect(() => {
+            // automatically scroll to MIN_TRANS_Y at beginning
             scrollTo(MIN_TRANS_Y)
         }, [])
         return (
